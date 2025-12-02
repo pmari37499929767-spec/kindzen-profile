@@ -192,10 +192,11 @@
             margin-top: 5px;
         }
 
+
 .section-trainers {
   background: #ffffff;
   border-radius: 16px;
-  padding: 24px;
+  padding: 32px 40px;
   margin-bottom: 32px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
@@ -203,123 +204,222 @@
 .section-trainers__title {
   font-size: 22px;
   font-weight: 600;
-  margin: 0 0 16px;
+  margin: 0 0 20px;
 }
 
 .trainers-block {
   display: flex;
-  gap: 32px;
   align-items: flex-start;
-  flex-wrap: nowrap;
+  gap: 32px;
 }
 
+/* Левая колонка с текстом */
 .trainers-block__left {
-  flex: 1 1 55%;
+  flex: 1 1 60%;
+  max-width: 640px;
 }
 
 .trainers-block__left p {
-  margin: 0 0 12px;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.trainers-block__left p:last-child {
-  margin-bottom: 0;
-}
-
-.trainers-block__right {
-  flex: 1 1 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.trainers-block__photo {
-  width: 100%;
-}
-
-.trainers-block__photo img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  border-radius: 12px;
-  background: #ddd;
-}
-
-/* Адаптация под планшеты и телефоны */
-@media (max-width: 900px) {
-  .trainers-block {
-    flex-direction: column;
-  }
-
-  .trainers-block__right {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .trainers-block__photo {
-    flex: 1 1 48%;
-  }
-
-  .trainers-block__photo img {
-    height: 200px;
-  }
-
-
-@media (max-width: 600px) {
-  .section-trainers {
-    padding: 16px;
-  }
-
-  .trainers-block__right {
-    flex-direction: column;
-  }
-
-  .trainers-block__photo {
-    flex: 1 1 100%;
-  }
-
-  .trainers-block__photo img {
-    height: 190px;
-  }
-
-/* Донастройка блока для тренеров — больше воздуха и маркеры */
-.section-trainers {
-  padding: 32px 40px;
-}
-
-.trainers-block {
-  column-gap: 40px;
-}
-
-.trainers-block__left {
-  max-width: 620px;
-}
-
-.trainers-block__left p,
-.trainers-list li {
   font-size: 17px;
   line-height: 1.7;
+  margin: 0 0 12px;
 }
 
 .trainers-block__intro {
   margin-bottom: 16px;
 }
 
+/* Список с маркерами */
 .trainers-list {
-  margin: 0 0 16px 1.2em;
-  padding: 0;
+  margin: 0 0 16px 1.4em;
+  padding-left: 0;
   list-style: disc;
 }
 
 .trainers-list li {
   margin-bottom: 8px;
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 .trainers-block__note {
   margin-top: 12px;
   font-style: italic;
+}
+
+.trainers-block__right {
+  flex: 0 0 320px;          /* фиксированная ширина колонки под вертикали */
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.trainers-block__photo {
+  width: 100%;
+  /* никаких фиксированных пропорций */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #eaeff3;
+}
+
+.trainers-block__photo img {
+  width: 100%;    /* подстраиваемся по ширине колонки */
+  height: auto;   /* высота считается по исходным пропорциям */
+  display: block;
+  object-fit: cover; /* можно оставить, но при height:auto почти не влияет */
+}
+
+
+/* Адаптация под планшет/телефон */
+@media (max-width: 900px) {
+  .section-trainers {
+    padding: 24px 20px;
+  }
+
+  .trainers-block {
+    flex-direction: column;
+  }
+
+  .trainers-block__right {
+    flex: 1 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .trainers-block__photo {
+    flex: 1 1 48%;
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-trainers {
+    padding: 20px 16px;
+  }
+
+  .trainers-block__right {
+    flex-direction: column;
+  }
+
+  .trainers-block__photo {
+    max-width: 100%;
+  }
+}
+/* ===== Блок для тренеров (2 вертикальных фото) ===== */
+
+.section-trainers {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.section-trainers__title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+
+.trainers-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+/* Левая колонка с текстом */
+.trainers-block__left {
+  flex: 1 1 60%;
+  max-width: 640px;
+}
+
+.trainers-block__left p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.trainers-block__intro {
+  margin-bottom: 16px;
+}
+
+/* Список с маркерами */
+.trainers-list {
+  margin: 0 0 16px 1.4em;
+  padding-left: 0;
+  list-style: disc;
+}
+
+.trainers-list li {
+  margin-bottom: 8px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Последний абзац как акцент */
+.trainers-block__note {
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* Правая колонка с двумя вертикальными фото */
+.trainers-block__right {
+  flex: 0 0 320px;          /* ширина колонки под вертикали */
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.trainers-block__photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;      /* вертикальная карточка 3:4 */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #eaeff3;
+}
+
+.trainers-block__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Адаптация под планшет/телефон */
+@media (max-width: 900px) {
+  .section-trainers {
+    padding: 24px 20px;
+  }
+
+  .trainers-block {
+    flex-direction: column;
+  }
+
+  .trainers-block__right {
+    flex: 1 1 auto;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .trainers-block__photo {
+    flex: 1 1 48%;
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-trainers {
+    padding: 20px 16px;
+  }
+
+  .trainers-block__right {
+    flex-direction: column;
+  }
+
+  .trainers-block__photo {
+    max-width: 100%;
+  }
 }
 
     </style> 
@@ -349,10 +449,10 @@
         </header>
 
         <section class="about-block">
-    <h2>Кто я и зачем вам такой человек</h2>
+    <h2>Кто я и зачем вам мои навыки</h2>
 
    <figure class="about-photo">
-    <img src="avatar.jpg" alt="Марина Петрачкова">
+    <img src="3_avatar.jpg" alt="Марина Петрачкова">
 </figure>
    
 
@@ -374,53 +474,52 @@
     <p>
         Внедрила систему независимых рейтингов: публичный профиль по открытым источникам + ИИ + авторская аналитика. Ручная работа: фактчекинг, кейсы, отзывы клиентов, оценка контента как эксперт держит удар на неудобных вопросах.
     </p>
-</section>
 <section class="section-trainers">
   <h2 class="section-trainers__title">Для бизнес-тренеров и экспертов</h2>
 
-  <div class="trainers-block__left">
-  <p class="trainers-block__intro">
-    В интервью с экспертами, помогающими собственникам, топ-менеджерам и командам в разных отраслях,
-    мы разбираем ключевые темы развития бизнеса.
-  </p>
+  <div class="trainers-block">
+    <div class="trainers-block__left">
+      <p class="trainers-block__intro">
+        В интервью с экспертами, помогающими собственникам, топ-менеджерам и командам в разных отраслях,
+        мы разбираем ключевые темы развития бизнеса.
+      </p>
 
-  <ul class="trainers-list">
-    <li>рост бизнеса и масштабирование без выгорания;</li>
-    <li>работа с командой и роль управленца в этих процессах;</li>
-    <li>как экспертиза тренера помогает именно предпринимателям;</li>
-    <li>позиционирование, упаковка и контент эксперта.</li>
-  </ul>
+      <ul class="trainers-list">
+        <li>рост бизнеса и масштабирование без выгорания;</li>
+        <li>работа с командой и роль управленца в этих процессах;</li>
+        <li>как экспертиза тренера помогает именно предпринимателям;</li>
+        <li>позиционирование, упаковка и контент эксперта.</li>
+      </ul>
 
-  <p>
-    Слушаю и спрашиваю то, что считаю важным вытащить на поверхность, прежде чем рекомендовать тренера.
-  </p>
-  <p>
-    Не продаю обещания бизнес-тренерам, что «приведу вам миллионы клиентов», но могу помочь сделать
-    экспертизу понятнее для предпринимателей.
-  </p>
-  <p>
-    Если вы готовы к честной обратной связи по позиционированию и контенту, то мы с вами, скорее всего,
-    найдём общий язык.
-  </p>
-  <p class="trainers-block__note">
-    Я не привязана к одной Школе или линейке программ. Моя задача — не «продать конкретного тренера»,
-    а помочь выбрать живого человека под вашу задачу и этап бизнеса.
-  </p>
-</div>
+      <p>
+        Слушаю и спрашиваю то, что считаю важным вытащить на поверхность, прежде чем рекомендовать тренера.
+      </p>
+      <p>
+        Не продаю обещания бизнес-тренерам, что «приведу вам миллионы клиентов», но могу помочь сделать
+        экспертизу понятнее для предпринимателей.
+      </p>
+      <p>
+        Если вы готовы к честной обратной связи по позиционированию и контенту, то мы с вами, скорее всего,
+        найдём общий язык.
+      </p>
+      <p class="trainers-block__note">
+        Я не привязана к одной Школе или линейке программ. Моя задача — не «продать конкретного тренера»,
+        а помочь выбрать живого человека под вашу задачу и этап бизнеса.
+      </p>
+    </div>
 
     <div class="trainers-block__right">
       <div class="trainers-block__photo">
-        <img src="trainer-photo-1.jpg" alt="Рабочий момент с тренером 1">
+        <img src="1_trainer-photo-1.jpg" alt="Рабочий момент с тренером 1">
       </div>
       <div class="trainers-block__photo">
-        <img src="trainer-photo-2.jpg" alt="Рабочий момент с тренером 2">
-      </div>
-      <div class="trainers-block__photo">
-        <img src="trainer-photo-3.jpg" alt="Рабочий момент с тренером 3">
+        <img src="2_trainer-photo-2.jpg" alt="Рабочий момент с тренером 2">
       </div>
     </div>
   </div>
 </section>
+
+
 
 
         
